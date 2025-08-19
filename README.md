@@ -48,7 +48,8 @@ The pipeline is implemented in **Jenkins** and has two parts:
 
 ### 🔄 Pipeline Flow Diagram
 
-![Pipeline Flow](./e49c9d21-3c95-43b1-aefa-f4d4da575089.png)
+<img width="1151" height="530" alt="Jenkins" src="https://github.com/user-attachments/assets/4a7e7848-c46d-4956-8150-40f35ad491fe" />
+
 
 ---
 
