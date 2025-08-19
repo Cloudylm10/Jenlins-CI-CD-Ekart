@@ -9,6 +9,10 @@ This repository documents the **CI/CD pipeline setup** for deploying an **Ekart 
 I deployed an **Ekart shopping website** made in **Java (Spring Boot + Thymeleaf)**.  
 This is a demo project for practicing **Spring + Thymeleaf**.  
 
+
+![Uploading Jenkins.png…]()
+
+
 👉 The idea was to build a **basic shopping cart web app** where users can register, log in, browse products, and add them to their **own shopping cart (session-based)**. Checkout is **transactional**.
 
 ### 🛠️ Tech stack of the application:
