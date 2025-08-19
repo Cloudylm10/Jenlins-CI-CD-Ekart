@@ -129,3 +129,32 @@ OWASP Dependency Check: Finds security risks in project dependencies.
 Build Application: Uses Maven to build .jar file.
 Docker Build & Push: Builds image and pushes it to DockerHub.
 Trigger CD Pipeline: Calls another Jenkins job for deployment.
+
+
+🚀 CD Pipeline Script (Deployment)
+pipeline {
+    agent any
+
+    stages {
+        stage('Docker Deploy to container') {
+            steps {
+                script {
+                    withDockerRegistry([credentialsId: 'aba5182c-c628-4fd6-bd4c-418c70e33be4', url: 'https://index.docker.io/v1/']) {
+                        sh '''
+                        docker rm -f shopping-cart || true
+                        docker run -d --name shopping-cart -p 8070:8070 lubhitdocker/shopping:latest
+                        '''
+                    }
+                }
+            }
+        }
+    }
+}
+
+🔑 Explanation:
+
+Removes old container if exists.
+
+Runs new container with exposed port 8070.
+
+Deploys the latest DockerHub image.
