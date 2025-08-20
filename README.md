@@ -163,6 +163,8 @@ pipeline {
 ## 📊 SonarQube Dashboard
 
 We logged into SonarQube container (username: admin, password: admin) and verified project analysis.
+<img width="1916" height="891" alt="j1" src="https://github.com/user-attachments/assets/5d1674e6-bfc3-471f-a10a-9bca27956351" />
+
 
 ---
 
