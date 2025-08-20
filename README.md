@@ -48,8 +48,7 @@ The pipeline is implemented in **Jenkins** and has two parts:
 
 ### 🔄 Pipeline Flow Diagram
 
-<img width="1151" height="530" alt="Jenkins" src="https://github.com/user-attachments/assets/4a7e7848-c46d-4956-8150-40f35ad491fe" />
-
+<img width="1151" height="530" alt="Jenkins Pipeline" src="https://github.com/user-attachments/assets/4a7e7848-c46d-4956-8150-40f35ad491fe" />
 
 ---
 
@@ -120,21 +119,20 @@ pipeline {
         }
     }
 }
+```
+
 🔑 Explanation:
-SonarQube Analysis: Scans code for bugs, vulnerabilities, and code smells.
+- **SonarQube Analysis**: Scans code for bugs, vulnerabilities, and code smells.
+- **OWASP Dependency Check**: Finds security risks in project dependencies.
+- **Build Application**: Uses Maven to build .jar file.
+- **Docker Build & Push**: Builds image and pushes it to DockerHub.
+- **Trigger CD Pipeline**: Calls another Jenkins job for deployment.
 
-OWASP Dependency Check: Finds security risks in project dependencies.
+---
 
-Build Application: Uses Maven to build .jar file.
+## 🚀 CD Pipeline Script (Deployment)
 
-Docker Build & Push: Builds image and pushes it to DockerHub.
-
-Trigger CD Pipeline: Calls another Jenkins job for deployment.
-
-🚀 CD Pipeline Script (Deployment)
-groovy
-Copy
-Edit
+```groovy
 pipeline {
     agent any
 
@@ -153,50 +151,52 @@ pipeline {
         }
     }
 }
+```
+
 🔑 Explanation:
-Removes old container if exists.
+- Removes old container if exists.
+- Runs new container with exposed port 8070.
+- Deploys the latest DockerHub image.
 
-Runs new container with exposed port 8070.
+---
 
-Deploys the latest DockerHub image.
+## 📊 SonarQube Dashboard
 
-📊 SonarQube Dashboard
-We logged into SonarQube container (username: admin, password: admin) and verified project analysis:
+We logged into SonarQube container (username: admin, password: admin) and verified project analysis.
 
+---
 
-🔌 Plugins Used in Jenkins
+## 🔌 Plugins Used in Jenkins
+
 Before running pipelines, we installed:
+- SonarQube Scanner Plugin
+- OWASP Dependency-Check Plugin
+- Docker & Docker Pipeline Plugin
 
-SonarQube Scanner Plugin
+---
 
-OWASP Dependency-Check Plugin
+## 🛠️ Technologies Used
 
-Docker & Docker Pipeline Plugin
+- Java 21 (OpenJDK)
+- Spring Boot, Thymeleaf, Spring Security
+- Maven 3
+- Jenkins
+- SonarQube (docker run -d -p 9000:9000 sonarqube:lts-community)
+- OWASP Dependency Check
+- Docker & DockerHub
+- Eclipse IDE
 
-🛠️ Technologies Used
-Java 21 (OpenJDK)
+---
 
-Spring Boot, Thymeleaf, Spring Security
+## 🙌 Acknowledgements
 
-Maven 3
+- Original Project Author: Adi Jaiswal
+- Jenkins & DevOps community for plugin support
+- Open Source contributors
 
-Jenkins
+---
 
-SonarQube (docker run -d -p 9000:9000 sonarqube:lts-community)
+## 📜 License
 
-OWASP Dependency Check
-
-Docker & DockerHub
-
-Eclipse IDE
-
-🙌 Acknowledgements
-Original Project Author: Adi Jaiswal
-
-Jenkins & DevOps community for plugin support
-
-Open Source contributors
-
-📜 License
-This project is for educational/demo purposes only.
-The original application belongs to jaiswaladi246/Ekart.
+This project is for educational/demo purposes only.  
+The original application belongs to [jaiswaladi246/Ekart](https://github.com/jaiswaladi246/Ekart).
